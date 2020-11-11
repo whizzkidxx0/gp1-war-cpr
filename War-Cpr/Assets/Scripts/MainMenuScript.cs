@@ -23,7 +23,10 @@ public class MainMenuScript : MonoBehaviour
     }
 
 
-
+    public void Credits()
+    {
+        SceneManager.LoadScene(4);
+    }
 
 
 
