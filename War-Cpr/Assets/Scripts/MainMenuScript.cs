@@ -13,7 +13,7 @@ public class MainMenuScript : MonoBehaviour
 
         buttonPress.Play();
         LevelRedirect.redirectToLevel = 2;
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(5);
     }
 
 
