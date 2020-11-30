@@ -7,14 +7,14 @@ public class transition : MonoBehaviour
 {
     void Start()
     {
-        StartCoroutine(Rollcredits());
+        StartCoroutine(DiaryReading());
     }
 
 
-    IEnumerator Rollcredits()
+    IEnumerator DiaryReading()
     {
         yield return new WaitForSeconds(28f);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(7);
 
     }
 }
