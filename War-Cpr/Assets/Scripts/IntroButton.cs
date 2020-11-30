@@ -12,6 +12,6 @@ public class IntroButton : MonoBehaviour
 
         buttonPress.Play();
         LevelRedirect.redirectToLevel = 2;
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(6);
     }
 }
