@@ -1741,6 +1741,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 542ed1ba782999242830f6bb88f6d5f6, type: 3}
+--- !u!1 &234639241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 234639243}
+  - component: {fileID: 234639242}
+  m_Layer: 0
+  m_Name: SoldierAnimationScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &234639242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234639241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8987b72d4ea2e8348a87c9c55d39636d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soldier: {fileID: 1156984283}
+--- !u!4 &234639243
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234639241}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.415901, y: 0.91565317, z: -4.067569}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &241896319 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000010722287358, guid: 31e592290fe8d374189df0249055b7e8, type: 3}
@@ -6565,6 +6609,11 @@ Transform:
   m_Father: {fileID: 1193844741}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1156984283 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 3332633def1129a4bb3d4e7ae24d2d45, type: 3}
+  m_PrefabInstance: {fileID: 1330722195}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1158250082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7620,11 +7669,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6335104613608664934, guid: 3332633def1129a4bb3d4e7ae24d2d45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -0.04442848
+      value: -0.044
       objectReference: {fileID: 0}
     - target: {fileID: -6335104613608664934, guid: 3332633def1129a4bb3d4e7ae24d2d45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -13.16265
+      value: -13.163
       objectReference: {fileID: 0}
     - target: {fileID: -6335104613608664934, guid: 3332633def1129a4bb3d4e7ae24d2d45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
