@@ -25,7 +25,7 @@ public class Heartbeat : MonoBehaviour
 
     IEnumerator WarSoundsDelay()
     {
-        yield return new WaitForSeconds(42f);
+        yield return new WaitForSeconds(37f);
         warSound.Play();
     }
     IEnumerator StressSoundsDelay()
