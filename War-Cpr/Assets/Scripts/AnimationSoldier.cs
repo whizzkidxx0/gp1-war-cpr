@@ -35,6 +35,8 @@ public class AnimationSoldier : MonoBehaviour
         soldier.GetComponent<Animation>().Play("runFast 2");
         yield return new WaitForSeconds(1.2f);
         soldier.GetComponent<Animation>().Play("runFast 3");
+        yield return new WaitForSeconds(1.2f);
+        soldier.GetComponent<Animation>().Play("soldierMachineGun");
 
 
         //soldier.GetComponent<Animation>().Play("soldierSittin3");
