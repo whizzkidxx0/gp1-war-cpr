@@ -29,11 +29,11 @@ public class AnimationSoldier : MonoBehaviour
     {
         yield return new WaitForSeconds(46);
         soldier.GetComponent<Animation>().Play("runFast");
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(1.2f);
         soldier.GetComponent<Animation>().Play("runFast 1");
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(1.2f);
         soldier.GetComponent<Animation>().Play("runFast 2");
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(1.2f);
         soldier.GetComponent<Animation>().Play("runFast 3");
 
 
