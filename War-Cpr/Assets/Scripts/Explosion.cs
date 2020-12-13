@@ -5,11 +5,18 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     public AudioSource explosionSoundEffects;
+    public AudioSource explosionSoundEffects1;
+    public AudioSource explosionSoundEffects2;
+    public AudioSource explosionSoundEffects3;
+    public AudioSource explosionSoundEffects4;
+
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(ExplosionPlayScript());
+        StartCoroutine(ExplosionPlayScript2());
+
     }
 
 
@@ -18,4 +25,16 @@ public class Explosion : MonoBehaviour
         yield return new WaitForSeconds(52);
         explosionSoundEffects.Play();
     }
+
+    IEnumerator ExplosionPlayScript2()
+    {
+        yield return new WaitForSeconds(62);
+        explosionSoundEffects1.volume = 0.2f;
+        explosionSoundEffects2.volume = 0.2f;
+        explosionSoundEffects3.volume = 0.2f;
+        explosionSoundEffects4.Play();
+    }
+
+   
+
 }
