@@ -26,11 +26,13 @@ public class StandSoldierAnimations : MonoBehaviour
 
     IEnumerator RunStart()
     {
-        yield return new WaitForSeconds(47);
+        yield return new WaitForSeconds(49);
         soldier.GetComponent<Animation>().Play("runToCounter");
         yield return new WaitForSeconds(1.5f);
         soldier.GetComponent<Animation>().Play("runToCounter2");
-        
+        yield return new WaitForSeconds(1.5f);
+        soldier.GetComponent<Animation>().Play("counterSoldier");
+
 
         //soldier.GetComponent<Animation>().Play("soldierSittin3");
     }
