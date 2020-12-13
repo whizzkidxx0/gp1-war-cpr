@@ -29,9 +29,9 @@ public class Explosion : MonoBehaviour
     IEnumerator ExplosionPlayScript2()
     {
         yield return new WaitForSeconds(62);
-        explosionSoundEffects1.volume = 0.2f;
-        explosionSoundEffects2.volume = 0.2f;
-        explosionSoundEffects3.volume = 0.2f;
+        explosionSoundEffects1.volume = 0.1f;
+        explosionSoundEffects2.volume = 0.1f;
+        explosionSoundEffects3.volume = 0.1f;
         explosionSoundEffects4.Play();
     }
 
