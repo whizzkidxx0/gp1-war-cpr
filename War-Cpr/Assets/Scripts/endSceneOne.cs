@@ -9,6 +9,8 @@ public class endSceneOne : MonoBehaviour
     public GameObject explosionParticle;
     public GameObject explosionParticle2;
     public GameObject explosionParticle3;
+    public GameObject explosionParticle4;
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +23,7 @@ public class endSceneOne : MonoBehaviour
 
     IEnumerator eindScene()
     {
-        yield return new WaitForSeconds(66);
+        yield return new WaitForSeconds(65.5f);
         anim.SetActive(true);
         flauwvallen.Play();
     }
@@ -34,6 +36,8 @@ public class endSceneOne : MonoBehaviour
         explosionParticle2.SetActive(false);
         yield return new WaitForSeconds(.5f);
         explosionParticle3.SetActive(false);
+        explosionParticle4.SetActive(false);
+
     }
 
 }
