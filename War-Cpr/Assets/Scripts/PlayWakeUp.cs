@@ -8,6 +8,8 @@ public class PlayWakeUp : MonoBehaviour
     public AudioSource playWakeUp;
     public AudioSource stopHeartbeat;
     public GameObject injuredSoldier;
+    public GameObject hintHand;
+    public GameObject cube;
 
 
     // Start is called before the first frame update
@@ -15,9 +17,8 @@ public class PlayWakeUp : MonoBehaviour
     {
         StartCoroutine(PlayWakeUpSoundAndAnimation());
         StartCoroutine(StopHeartBeat());
-
+        StartCoroutine(PlayHandAnimation());
     }
-
 
     IEnumerator PlayWakeUpSoundAndAnimation()
     {
@@ -31,6 +32,14 @@ public class PlayWakeUp : MonoBehaviour
         yield return new WaitForSeconds(7f);
         stopHeartbeat.Stop();
 
+    }
+
+    IEnumerator PlayHandAnimation()
+    {
+        yield return new WaitForSeconds(30);
+        hintHand.SetActive(true);
+        hintHand.GetComponent<Animation>().Play("NewHandAnim");
+        cube.SetActive(true);
     }
 
 }
