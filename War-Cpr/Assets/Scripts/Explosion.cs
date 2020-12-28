@@ -9,6 +9,8 @@ public class Explosion : MonoBehaviour
     public AudioSource explosionSoundEffects2;
     public AudioSource explosionSoundEffects3;
     public AudioSource explosionSoundEffects4;
+    public AudioSource explosionSoundEffects5;
+
 
 
     // Start is called before the first frame update
@@ -24,6 +26,7 @@ public class Explosion : MonoBehaviour
     {
         yield return new WaitForSeconds(52);
         explosionSoundEffects.Play();
+        explosionSoundEffects5.Play();
     }
 
     IEnumerator ExplosionPlayScript2()
