@@ -5,6 +5,7 @@ using UnityEngine;
 public class HandAnimation : MonoBehaviour
 {
     public GameObject hand;
+    public GameObject timerText;
 
     // Start is called before the first frame update
     public void Start()
@@ -14,11 +15,25 @@ public class HandAnimation : MonoBehaviour
 
     IEnumerator AnimationStart()
     {
-        Test.startTimer = false;
-        Test.totalTime = 5;
-        hand.SetActive(true);
-        yield return new WaitForSeconds(1);
-        hand.GetComponent<Animation>().Play("NewHandAnim");
+        if (Test.nextStep == false)
+        {
+            Test.startTimer = false;
+
+            if (Test.startTimer == false)
+            {
+                timerText.SetActive(false);
+            }
+
+            Test.totalTime = 5;
+            yield return new WaitForSeconds(.2f);
+
+            if (Test.playHandAnim)
+            {
+                hand.SetActive(true);
+                hand.GetComponent<Animation>().Play("NewHandAnim");
+            }
+        }
+        
     }
 
 }
