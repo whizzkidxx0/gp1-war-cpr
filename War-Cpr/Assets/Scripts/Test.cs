@@ -21,6 +21,10 @@ public class Test : MonoBehaviour
     public AudioSource playCprHeartMassage;
     public GameObject twoHands;
     public GameObject heartCube;
+    public GameObject centerHeartCube;
+    public GameObject counterTextCanvas;
+    public GameObject onNeckExit;
+    public GameObject test;
     int counter = 0;
     // Start is called before the first frame update
     public void PlayAnim()
@@ -81,7 +85,7 @@ public class Test : MonoBehaviour
         playNext.Play();
         yield return new WaitForSeconds(3);
         playNext.Stop();
-        totalTime = 30;
+        HeartMassage.totalTimeHeartMassage = 18;
         nextStep = false;
         yield return new WaitForSeconds(.1f);
         playCprHeartMassage.Play();
@@ -89,6 +93,10 @@ public class Test : MonoBehaviour
         twoHands.SetActive(true);
         twoHands.GetComponent<Animation>().Play("cprHintAnim");
         heartCube.SetActive(true);
+        centerHeartCube.SetActive(true);
+        counterTextCanvas.SetActive(true);
+        onNeckExit.SetActive(false);
+        test.SetActive(false);
         //startTimer = true;
     }
 
