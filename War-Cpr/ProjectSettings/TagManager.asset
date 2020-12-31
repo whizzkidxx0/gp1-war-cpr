@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - cilinderLight
+  - mouth
   layers:
   - Default
   - TransparentFX
