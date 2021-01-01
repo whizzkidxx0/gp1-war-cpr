@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,8 +25,15 @@ public class HeartMassage : MonoBehaviour
     public GameObject lips;
     public static bool nextStepHeartMassage = false;
     public static bool cubeParentInteract = false;
+    public AudioSource heavyBreathingSound;
+    public static int sceneCounter = 0; 
     //public Text counterText;
-    //public GameObject counterCanvas;
+    public GameObject counterCanvas;
+    public GameObject counterCanvas2;
+    public Text counterText;
+    public Text counterText2;
+
+
 
     public void PlayHeartMassage()
     {
@@ -45,21 +53,43 @@ public class HeartMassage : MonoBehaviour
     {
         if (startTimerHeartMassage)
         {
+
+            if (heavyBreathingSound.isPlaying == false)
+            {
+                heavyBreathingSound.Play();
+            }
+            if (sceneCounter == 0)
+            {
+                counterCanvas2.SetActive(true);
+            }
+            else if(sceneCounter == 1)
+            {
+                counterCanvas.SetActive(true);
+            }
             txt.SetActive(true);
             totalTimeHeartMassage -= Time.deltaTime;
             seconds = (int)(totalTimeHeartMassage % 60);
-
-
+         
             if (seconds <= 0)
             {
                 cube.SetActive(false);
                 childCube.SetActive(false);
                 canvas.SetActive(false);
-                text.text = "NEXT STEP";
+                //text.text = "NEXT STEP";
+                text.text = "";
                 nextStepHeartMassage = true;
                 hand.GetComponent<Animation>().Stop("cprHintAnim");
                 hand.SetActive(false);
+                heavyBreathingSound.Stop();
                 startTimerHeartMassage = false;
+                if (sceneCounter == 0)
+                {
+                    counterCanvas2.SetActive(false);
+                }
+                else if (sceneCounter == 1)
+                {
+                    counterCanvas.SetActive(false);
+                }
             }
             else
             {
@@ -70,13 +100,29 @@ public class HeartMassage : MonoBehaviour
             }
 
         }
+        else
+        {
+            if (heavyBreathingSound.isPlaying == true)
+            {
+                heavyBreathingSound.Stop();
+            }
+        }
+
 
 
         if (nextStepHeartMassage)
         {
             if (playNext.isPlaying == false)
             {
-                StartCoroutine(playNextScene());
+                if (sceneCounter == 0)
+                {
+                    StartCoroutine(playNextScene());
+                    sceneCounter++;
+                }
+                if(sceneCounter == 1)
+                {
+                    StartCoroutine(playFinalSceneGood());
+                }
             }
         }
 
@@ -85,23 +131,69 @@ public class HeartMassage : MonoBehaviour
 
     IEnumerator playNextScene()
     {
-        playNext.Play();
-        yield return new WaitForSeconds(3);
-        playNext.Stop();
-        LipsCollision.totalTimeLip = 5;
-        nextStepHeartMassage = false;
-        yield return new WaitForSeconds(.1f);
-        //playCprHeartMassage.Play();
-        //yield return new WaitForSeconds(10f);
-        //twoHands.SetActive(true);
-        //twoHands.GetComponent<Animation>().Play("cprHintAnim");
-        //heartCube.SetActive(true);
-        //centerHeartCube.SetActive(true);
-        mouthCube.SetActive(true);
-        lips.SetActive(true);
-        //counterTextCanvas.SetActive(true);
-        heartCube.SetActive(false);
-        centerHeartCube.SetActive(false);
-        //startTimer = true;
+        if (sceneCounter == 0)
+        {
+            //PlayerPrefs.SetInt("FirstScore", ChildCubeInterract.counter2);
+            playNext.Play();
+            yield return new WaitForSeconds(10);
+            playNext.Stop();
+            LipsCollision.totalTimeLip = 5;
+            nextStepHeartMassage = false;
+            yield return new WaitForSeconds(.1f);
+            mouthCube.SetActive(true);
+            lips.SetActive(true);
+            heartCube.SetActive(false);
+            centerHeartCube.SetActive(false);
+        }
     }
+
+
+    IEnumerator playFinalSceneGood()
+    {
+        if (sceneCounter == 1)
+        {
+            //PlayerPrefs.SetInt("SecondScore", ChildCubeInterract.counter);
+            //playNext.Play();
+            //yield return new WaitForSeconds(10);
+            //playNext.Stop();
+            //LipsCollision.totalTimeLip = 5;
+            nextStepHeartMassage = false;
+            yield return new WaitForSeconds(.1f);
+            mouthCube.SetActive(false);
+            lips.SetActive(false);
+            heartCube.SetActive(false);
+            centerHeartCube.SetActive(false);
+            canvas.SetActive(true);
+            double scores = double.Parse(counterText.text) + double.Parse(PlayerPrefs.GetInt("SecondScore").ToString());
+            double totalScore = (scores / 60.0) * 100.0;
+            if (totalScore <= 100.0)
+            {
+                if (LipsCollision.showScore)
+                {
+                    text.text = "score : " + (Math.Round(totalScore, 2)).ToString() + "%";
+                }
+            }
+            else
+            {
+                double totalScoreModulo = totalScore % 100.0;
+                double finalScore = 100.0 - totalScoreModulo;
+                if (LipsCollision.showScore)
+                {
+                    text.text = "score : " + (Math.Round(finalScore, 2)).ToString() + "%";
+                }
+            }
+        }
+    }
+
+    //IEnumerator playFinalSceneBad()
+    //{
+    //    //PlayerPrefs.SetInt("SecondScore", ChildCubeInterract.counter);
+    //    yield return new WaitForSeconds(.1f); 
+    //    nextStepHeartMassage = false; 
+    //    heartCube.SetActive(false);
+    //    centerHeartCube.SetActive(false);
+    //    canvas.SetActive(true);
+    //    text.text = "test : " + (PlayerPrefs.GetInt("FirtScore") + PlayerPrefs.GetInt("SecondScore")).ToString();
+    //}
+
 }
