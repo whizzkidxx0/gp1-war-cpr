@@ -23,6 +23,7 @@ public class Test : MonoBehaviour
     public GameObject heartCube;
     public GameObject centerHeartCube;
     public GameObject counterTextCanvas;
+    public GameObject counterTextCanvas2;
     public GameObject onNeckExit;
     public GameObject test;
     int counter = 0;
@@ -52,7 +53,7 @@ public class Test : MonoBehaviour
                 {
                     cube.SetActive(false);
                     canvas.SetActive(false);
-                    text.text = "NEXT STEP";
+                    //text.text = "NEXT STEP";
                     nextStep = true;
                     hand.GetComponent<Animation>().Stop("NewHandAnim");
                     hand.SetActive(false);
@@ -94,7 +95,8 @@ public class Test : MonoBehaviour
         twoHands.GetComponent<Animation>().Play("cprHintAnim");
         heartCube.SetActive(true);
         centerHeartCube.SetActive(true);
-        counterTextCanvas.SetActive(true);
+        //counterTextCanvas.SetActive(true);
+        //counterTextCanvas2.SetActive(true);
         onNeckExit.SetActive(false);
         test.SetActive(false);
         //startTimer = true;
