@@ -9,6 +9,8 @@ public class ExitHeartMassage : MonoBehaviour
     public GameObject hand;
     public GameObject timerText;
     public Text counterText;
+    public Text counterText2;
+
 
     public void ExitMassage()
     {
@@ -18,10 +20,17 @@ public class ExitHeartMassage : MonoBehaviour
 
         if (!HeartMassage.cubeParentInteract)
         {
-            ChildCubeInterract.counter = 0;
-            counterText.text = ChildCubeInterract.counter.ToString();
+            if (HeartMassage.sceneCounter == 1)
+            {
+                ChildCubeInterract.counter = 0;
+                counterText.text = ChildCubeInterract.counter.ToString();
+            }
+            else if (HeartMassage.sceneCounter == 0)
+            {
+                ChildCubeInterract.counter2 = 0;
+                counterText2.text = ChildCubeInterract.counter2.ToString();
+            }
         }
-
     }
 
     IEnumerator AnimationStart()
