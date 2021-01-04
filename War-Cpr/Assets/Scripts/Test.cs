@@ -27,6 +27,7 @@ public class Test : MonoBehaviour
     public GameObject onNeckExit;
     public GameObject test;
     int counter = 0;
+    public AudioSource timerTik;
     // Start is called before the first frame update
     public void PlayAnim()
     {
@@ -44,7 +45,15 @@ public class Test : MonoBehaviour
     {
         if (startTimer)
         {
-                txt.SetActive(true);
+
+            if (timerTik.isPlaying == false)
+            {
+
+                timerTik.Play();
+            }
+
+
+            txt.SetActive(true);
                 totalTime -= Time.deltaTime;
                 seconds = (int)(totalTime % 60);
 
@@ -58,15 +67,23 @@ public class Test : MonoBehaviour
                     hand.GetComponent<Animation>().Stop("NewHandAnim");
                     hand.SetActive(false);
                     startTimer = false;
+                   timerTik.Stop();
                 }
                 else
                 {
                 hand.SetActive(false);
                 hand.GetComponent<Animation>().Stop("NewHandAnim");
-                text.text = seconds.ToString();
+                text.text = "00:"+seconds.ToString();
                 playHandAnim = true;
                 }
          
+        }
+        else
+        {
+            if (timerTik.isPlaying == true)
+            {
+                timerTik.Stop(); 
+            }
         }
 
 
