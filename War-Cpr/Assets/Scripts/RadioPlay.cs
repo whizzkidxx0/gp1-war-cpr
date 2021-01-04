@@ -6,6 +6,8 @@ public class RadioPlay : MonoBehaviour
 {
     public AudioSource radioSound;
     public AudioSource alarmSound;
+    public GameObject visionEffects;
+
 
 
     // Start is called before the first frame update
@@ -27,6 +29,7 @@ public class RadioPlay : MonoBehaviour
     {
         yield return new WaitForSeconds(40f);
         alarmSound.Play();
+        visionEffects.SetActive(true);
     }
 
 }
