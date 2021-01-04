@@ -23,7 +23,7 @@ public class endSceneOne : MonoBehaviour
 
     IEnumerator eindScene()
     {
-        yield return new WaitForSeconds(65.5f);
+        yield return new WaitForSeconds(64.5f);
         anim.SetActive(true);
         flauwvallen.Play();
     }
