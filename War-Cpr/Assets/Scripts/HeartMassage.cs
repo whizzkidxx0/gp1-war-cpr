@@ -26,6 +26,9 @@ public class HeartMassage : MonoBehaviour
     public static bool nextStepHeartMassage = false;
     public static bool cubeParentInteract = false;
     public AudioSource heavyBreathingSound;
+    public GameObject visionEffect;
+    public AudioSource heartBeat;
+    public AudioSource timerTik;
     public static int sceneCounter = 0; 
     //public Text counterText;
     public GameObject counterCanvas;
@@ -57,6 +60,9 @@ public class HeartMassage : MonoBehaviour
             if (heavyBreathingSound.isPlaying == false)
             {
                 heavyBreathingSound.Play();
+                visionEffect.SetActive(true);
+                heartBeat.Play();
+                timerTik.Play();
             }
             if (sceneCounter == 0)
             {
@@ -81,6 +87,9 @@ public class HeartMassage : MonoBehaviour
                 hand.GetComponent<Animation>().Stop("cprHintAnim");
                 hand.SetActive(false);
                 heavyBreathingSound.Stop();
+                visionEffect.SetActive(false);
+                timerTik.Stop();
+                heartBeat.Stop();
                 startTimerHeartMassage = false;
                 if (sceneCounter == 0)
                 {
@@ -95,7 +104,7 @@ public class HeartMassage : MonoBehaviour
             {
                 hand.SetActive(false);
                 hand.GetComponent<Animation>().Stop("cprHintAnim");
-                text.text = seconds.ToString();
+                text.text = "00:"+seconds.ToString();
                 playHandAnimHeartMassage = true;
             }
 
@@ -105,6 +114,9 @@ public class HeartMassage : MonoBehaviour
             if (heavyBreathingSound.isPlaying == true)
             {
                 heavyBreathingSound.Stop();
+                visionEffect.SetActive(false);
+                timerTik.Stop();
+                heartBeat.Stop();
             }
         }
 
