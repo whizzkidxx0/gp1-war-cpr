@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -182,7 +183,9 @@ public class HeartMassage : MonoBehaviour
             {
                 if (LipsCollision.showScore)
                 {
-                    text.text = "score : " + (Math.Round(totalScore, 2)).ToString() + "%";
+                    PlayerPrefs.SetFloat("FinalScore", (float)(Math.Round(totalScore, 2)));
+                    SceneManager.LoadScene(9); 
+                    //text.text = "score : " + (Math.Round(totalScore, 2)).ToString() + "%";
                 }
             }
             else
@@ -191,7 +194,9 @@ public class HeartMassage : MonoBehaviour
                 double finalScore = 100.0 - totalScoreModulo;
                 if (LipsCollision.showScore)
                 {
-                    text.text = "score : " + (Math.Round(finalScore, 2)).ToString() + "%";
+                    PlayerPrefs.SetFloat("FinalScore", (float)(Math.Round(totalScore, 2)));
+                    SceneManager.LoadScene(9);
+                    //text.text = "score : " + (Math.Round(finalScore, 2)).ToString() + "%";
                 }
             }
         }
