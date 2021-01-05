@@ -32,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DestroyedBunker.unity
     guid: 8f810a55c8c2e234f93e0fe4fe63199b
+  - enabled: 1
+    path: Assets/Scenes/FinalScene.unity
+    guid: 8d7e76b68af9edf4988e084f757c4a56
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 0de675dd7dab40e43a728b91f08b151b, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: c81efaa37d7868a4891b4e82cd320eac, type: 2}
