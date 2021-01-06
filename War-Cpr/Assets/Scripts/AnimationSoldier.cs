@@ -16,8 +16,6 @@ public class AnimationSoldier : MonoBehaviour
 
     }
 
-
-
     IEnumerator AnimationStart()
     {
         yield return new WaitForSeconds(45);
@@ -41,7 +39,4 @@ public class AnimationSoldier : MonoBehaviour
 
         //soldier.GetComponent<Animation>().Play("soldierSittin3");
     }
-
-
-
 }
