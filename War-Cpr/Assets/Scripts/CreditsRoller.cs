@@ -9,15 +9,11 @@ public class CreditsRoller : MonoBehaviour
 
     public GameObject credits;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(Rollcredits());
     }
-
-
 
     IEnumerator Rollcredits()
     {
@@ -27,7 +23,5 @@ public class CreditsRoller : MonoBehaviour
         SceneManager.LoadScene(1);
 
     }
-
-
 
 }
