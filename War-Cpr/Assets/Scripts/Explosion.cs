@@ -17,9 +17,7 @@ public class Explosion : MonoBehaviour
     {
         StartCoroutine(ExplosionPlayScript());
         StartCoroutine(ExplosionPlayScript2());
-
     }
-
 
     IEnumerator ExplosionPlayScript()
     {
