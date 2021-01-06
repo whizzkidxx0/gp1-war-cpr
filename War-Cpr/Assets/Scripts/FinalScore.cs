@@ -20,10 +20,10 @@ public class FinalScore : MonoBehaviour
 
     IEnumerator FadeSceneTransition()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(7);
         cvs.SetActive(true);
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(1);
+        Application.Quit();
     }
 
 }
