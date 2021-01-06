@@ -10,7 +10,6 @@ public class datumtransition : MonoBehaviour
         StartCoroutine(WaitForDateFade());
     }
 
-
     IEnumerator WaitForDateFade()
     {
         yield return new WaitForSeconds(6f);
