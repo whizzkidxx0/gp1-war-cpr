@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -36,6 +37,66 @@ public class HeartMassage : MonoBehaviour
     public GameObject counterCanvas2;
     public Text counterText;
     public Text counterText2;
+
+    public AudioSource Respond;
+    public AudioSource YouDidYourBest;
+    public AudioSource WhatsThatNotAgain;
+    public AudioSource GetCover;
+    public AudioSource Jet;
+    public AudioSource Cry;
+    public AudioSource explosionSound;
+    public AudioSource dyingSound;
+    public AudioSource flashSound;
+    public AudioSource heartBeatSound;
+    public AudioSource wrSound;
+
+    public GameObject explosionRig;
+    public GameObject explosionRig2;
+    public GameObject explosionRig3;
+
+
+    public GameObject jetObj;
+    public GameObject explosionParticle1;
+    public GameObject explosionParticle2;
+    public GameObject explosionParticle3;
+    public GameObject explosionParticle4;
+    public GameObject explosionParticle5;
+    public GameObject explosionParticle6;
+    public GameObject explosionParticle7;
+    public GameObject explosionParticle8;
+    public GameObject explosionParticle9;
+    public GameObject explosionParticle10;
+    public GameObject explosionParticle11;
+    public GameObject explosionParticle12;
+    public GameObject explosionParticle13;
+    public GameObject explosionParticle14;
+    public GameObject explosionParticle15;
+    public GameObject explosionParticle16;
+    public GameObject explosionParticle17;
+    public GameObject explosionParticle18;
+    public GameObject explosionParticle19;
+    public GameObject explosionParticle20;
+    public GameObject explosionParticle21;
+    public GameObject explosionParticle22;
+    public GameObject explosionParticle23;
+    public GameObject explosionParticle24;
+    public GameObject explosionParticle25;
+    public GameObject explosionParticle26;
+    public GameObject explosionParticle27;
+
+    public GameObject air;
+    public GameObject finalCvs;
+    public GameObject GloVol2;
+    public Volume v;
+    public Volume v2;
+    public AudioSource DieLit;
+    public GameObject DirLight;
+
+
+
+
+
+
 
 
 
@@ -179,23 +240,173 @@ public class HeartMassage : MonoBehaviour
             canvas.SetActive(true);
             double scores = double.Parse(counterText.text) + double.Parse(PlayerPrefs.GetInt("SecondScore").ToString());
             double totalScore = (scores / 60.0) * 100.0;
+            double totalScoreModulo = totalScore % 100.0;
+            double finalScore = 100.0 - totalScoreModulo;
+
             if (totalScore <= 100.0)
             {
                 if (LipsCollision.showScore)
                 {
                     PlayerPrefs.SetFloat("FinalScore", (float)(Math.Round(totalScore, 2)));
-                    SceneManager.LoadScene(9); 
+
+                    if ((float)(Math.Round(totalScore, 2)) >= 50.0)
+                    {
+
+                        SceneManager.LoadScene(9);
+                    }
+                    else
+                    {
+                        Respond.Play();
+                        yield return new WaitForSeconds(3);
+                        YouDidYourBest.Play();
+                        Jet.Play();
+                        yield return new WaitForSeconds(4);
+                        Cry.Play();
+                        visionEffect.SetActive(true);
+                        yield return new WaitForSeconds(4);
+                        WhatsThatNotAgain.Play();
+                        heartBeatSound.Play();
+                        wrSound.Play();
+                        GloVol2.SetActive(true);
+                        v.weight = 1f;
+                        jetObj.SetActive(true);
+                        jetObj.GetComponent<Animation>().Play("FinalBadEndingPlane");
+                        yield return new WaitForSeconds(2f);
+                        GetCover.Play();
+                        yield return new WaitForSeconds(2);
+                        DieLit.Play();
+                        explosionSound.Play();
+                        heartBeatSound.volume = .08f;
+                        wrSound.volume = .1f;
+                        Cry.Stop();
+                        dyingSound.Play();
+                        flashSound.Play();
+                        explosionParticle1.SetActive(true);
+                        explosionParticle2.SetActive(true);
+                        explosionParticle3.SetActive(true);
+                        explosionParticle4.SetActive(true);
+                        explosionParticle5.SetActive(true);
+                        explosionParticle6.SetActive(true);
+                        explosionParticle7.SetActive(true);
+                        explosionParticle8.SetActive(true);
+                        explosionParticle10.SetActive(true);
+                        explosionParticle11.SetActive(true);
+                        explosionParticle12.SetActive(true);
+                        explosionParticle13.SetActive(true);
+                        explosionParticle14.SetActive(true);
+                        explosionParticle15.SetActive(true);
+                        explosionParticle16.SetActive(true);
+                        explosionParticle17.SetActive(true);
+                        explosionParticle18.SetActive(true);
+                        explosionParticle19.SetActive(true);
+                        explosionParticle20.SetActive(true);
+                        explosionParticle21.SetActive(true);
+                        explosionParticle22.SetActive(true);
+                        explosionParticle23.SetActive(true);
+                        explosionParticle24.SetActive(true);
+                        explosionParticle25.SetActive(true);
+                        explosionParticle26.SetActive(true);
+                        explosionParticle27.SetActive(true);
+                        explosionRig.SetActive(true);
+                        explosionRig2.SetActive(true);
+                        explosionRig3.SetActive(true);
+                        yield return new WaitForSeconds(3);
+                        air.SetActive(true);
+                        DirLight.SetActive(false);
+                        finalCvs.SetActive(true);
+                        explosionRig.SetActive(false);
+                        explosionRig2.SetActive(false);
+                        explosionRig3.SetActive(false);
+                        yield return new WaitForSeconds(5f);
+                        SceneManager.LoadScene(9);
+                    }
+
                     //text.text = "score : " + (Math.Round(totalScore, 2)).ToString() + "%";
                 }
             }
             else
             {
-                double totalScoreModulo = totalScore % 100.0;
-                double finalScore = 100.0 - totalScoreModulo;
+           
                 if (LipsCollision.showScore)
                 {
-                    PlayerPrefs.SetFloat("FinalScore", (float)(Math.Round(totalScore, 2)));
-                    SceneManager.LoadScene(9);
+                    PlayerPrefs.SetFloat("FinalScore", (float)(Math.Round(finalScore, 2)));
+
+                    if((float)(Math.Round(finalScore, 2)) >= 50.0)
+                    {
+
+
+
+
+                        SceneManager.LoadScene(9);
+                    }
+                    else
+                    {
+                        Respond.Play();
+                        yield return new WaitForSeconds(3);
+                        YouDidYourBest.Play();
+                        Jet.Play();
+                        yield return new WaitForSeconds(4);
+                        Cry.Play();
+                        visionEffect.SetActive(true);
+                        yield return new WaitForSeconds(4);
+                        WhatsThatNotAgain.Play();
+                        heartBeatSound.Play();
+                        wrSound.Play();
+                        GloVol2.SetActive(true);
+                        v.weight = 1f;
+                        jetObj.SetActive(true);
+                        jetObj.GetComponent<Animation>().Play("FinalBadEndingPlane");
+                        yield return new WaitForSeconds(2f);
+                        GetCover.Play();
+                        yield return new WaitForSeconds(2);
+                        DieLit.Play();
+                        explosionSound.Play();
+                        heartBeatSound.volume = .08f;
+                        wrSound.volume = .1f;
+                        Cry.Stop();
+                        dyingSound.Play();
+                        flashSound.Play();
+                        explosionParticle1.SetActive(true);
+                        explosionParticle2.SetActive(true);
+                        explosionParticle3.SetActive(true);
+                        explosionParticle4.SetActive(true);
+                        explosionParticle5.SetActive(true);
+                        explosionParticle6.SetActive(true);
+                        explosionParticle7.SetActive(true);
+                        explosionParticle8.SetActive(true);
+                        explosionParticle10.SetActive(true);
+                        explosionParticle11.SetActive(true);
+                        explosionParticle12.SetActive(true);
+                        explosionParticle13.SetActive(true);
+                        explosionParticle14.SetActive(true);
+                        explosionParticle15.SetActive(true);
+                        explosionParticle16.SetActive(true);
+                        explosionParticle17.SetActive(true);
+                        explosionParticle18.SetActive(true);
+                        explosionParticle19.SetActive(true);
+                        explosionParticle20.SetActive(true);
+                        explosionParticle21.SetActive(true);
+                        explosionParticle22.SetActive(true);
+                        explosionParticle23.SetActive(true);
+                        explosionParticle24.SetActive(true);
+                        explosionParticle25.SetActive(true);
+                        explosionParticle26.SetActive(true);
+                        explosionParticle27.SetActive(true);
+                        explosionRig.SetActive(true);
+                        explosionRig2.SetActive(true);
+                        explosionRig3.SetActive(true);
+                        yield return new WaitForSeconds(3);
+                        air.SetActive(true);
+                        DirLight.SetActive(false);
+                        finalCvs.SetActive(true);
+                        explosionRig.SetActive(false);
+                        explosionRig2.SetActive(false);
+                        explosionRig3.SetActive(false);
+                        yield return new WaitForSeconds(5f);
+                        SceneManager.LoadScene(9);
+                    }
+
+
                     //text.text = "score : " + (Math.Round(finalScore, 2)).ToString() + "%";
                 }
             }
