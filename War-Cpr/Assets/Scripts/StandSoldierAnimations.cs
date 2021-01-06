@@ -12,17 +12,13 @@ public class StandSoldierAnimations : MonoBehaviour
     {
         StartCoroutine(AnimationStart());
         StartCoroutine(RunStart());
-
     }
-
-
 
     IEnumerator AnimationStart()
     {
         yield return new WaitForSeconds(0);
         soldier.GetComponent<Animation>().Play("soldierTalking");
     }
-
 
     IEnumerator RunStart()
     {
