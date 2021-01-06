@@ -10,7 +10,6 @@ public class transition : MonoBehaviour
         StartCoroutine(DiaryReading());
     }
 
-
     IEnumerator DiaryReading()
     {
         yield return new WaitForSeconds(28f);
