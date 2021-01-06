@@ -37,7 +37,6 @@ public class HeartMassage : MonoBehaviour
     public GameObject counterCanvas2;
     public Text counterText;
     public Text counterText2;
-
     public AudioSource Respond;
     public AudioSource YouDidYourBest;
     public AudioSource WhatsThatNotAgain;
@@ -49,12 +48,9 @@ public class HeartMassage : MonoBehaviour
     public AudioSource flashSound;
     public AudioSource heartBeatSound;
     public AudioSource wrSound;
-
     public GameObject explosionRig;
     public GameObject explosionRig2;
     public GameObject explosionRig3;
-
-
     public GameObject jetObj;
     public GameObject explosionParticle1;
     public GameObject explosionParticle2;
@@ -83,7 +79,6 @@ public class HeartMassage : MonoBehaviour
     public GameObject explosionParticle25;
     public GameObject explosionParticle26;
     public GameObject explosionParticle27;
-
     public GameObject air;
     public GameObject finalCvs;
     public GameObject GloVol2;
@@ -91,12 +86,19 @@ public class HeartMassage : MonoBehaviour
     public Volume v2;
     public AudioSource DieLit;
     public GameObject DirLight;
-
-
-
-
-
-
+    public GameObject soldierUncounscious;
+    public AudioSource Cough;
+    public AudioSource YouDidIt;
+    public AudioSource GodWhappend;
+    public AudioSource YouWereUncouncsious;
+    public AudioSource ThanksRyan;
+    public AudioSource LookEveryOne;
+    public AudioSource WellJohnnyShower;
+    public AudioSource ShutupDoc;
+    public AudioSource Laughing;
+    public GameObject ourAirForces;
+    public GameObject injuredSoldier;
+    public GameObject shakeCam;
 
 
 
@@ -251,7 +253,45 @@ public class HeartMassage : MonoBehaviour
 
                     if ((float)(Math.Round(totalScore, 2)) >= 50.0)
                     {
-
+                        soldierUncounscious.GetComponent<Animation>().Play("CPRWakeUp");
+                        Cough.Play();
+                        v.weight = .9f;
+                        v2.weight = .9f;
+                        yield return new WaitForSeconds(7);
+                        YouDidIt.Play();
+                        yield return new WaitForSeconds(3);
+                        GodWhappend.Play();
+                        v.weight = .85f;
+                        v2.weight = .85f;
+                        yield return new WaitForSeconds(2);
+                        YouWereUncouncsious.Play();
+                        Jet.volume = .15f;
+                        yield return new WaitForSeconds(4);
+                        ThanksRyan.Play();
+                        Jet.Play();
+                        v.weight = .8f;
+                        v2.weight = .8f;
+                        yield return new WaitForSeconds(2);
+                        ourAirForces.SetActive(true);
+                        ourAirForces.GetComponent<Animation>().Play("FinalForces");
+                        yield return new WaitForSeconds(3);
+                        injuredSoldier.GetComponent<Animation>().Play("FinalLaugh");
+                        LookEveryOne.Play();
+                        yield return new WaitForSeconds(6.5f);
+                        ourAirForces.SetActive(false);
+                        WellJohnnyShower.Play();
+                        v.weight = .75f;
+                        v2.weight = .75f;
+                        yield return new WaitForSeconds(5.5f);
+                        ShutupDoc.Play();
+                        yield return new WaitForSeconds(1.5f);
+                        Laughing.Play();
+                        v.weight = .7f;
+                        v2.weight = .7f;
+                        yield return new WaitForSeconds(4);
+                        DirLight.SetActive(false);
+                        finalCvs.SetActive(true);
+                        yield return new WaitForSeconds(2.5f);
                         SceneManager.LoadScene(9);
                     }
                     else
@@ -310,14 +350,16 @@ public class HeartMassage : MonoBehaviour
                         explosionRig.SetActive(true);
                         explosionRig2.SetActive(true);
                         explosionRig3.SetActive(true);
+                        shakeCam.SetActive(true);
                         yield return new WaitForSeconds(3);
                         air.SetActive(true);
                         DirLight.SetActive(false);
-                        finalCvs.SetActive(true);
                         explosionRig.SetActive(false);
                         explosionRig2.SetActive(false);
                         explosionRig3.SetActive(false);
                         yield return new WaitForSeconds(5f);
+                        finalCvs.SetActive(true);
+                        yield return new WaitForSeconds(2f);
                         SceneManager.LoadScene(9);
                     }
 
@@ -333,10 +375,45 @@ public class HeartMassage : MonoBehaviour
 
                     if((float)(Math.Round(finalScore, 2)) >= 50.0)
                     {
-
-
-
-
+                        soldierUncounscious.GetComponent<Animation>().Play("CPRWakeUp");
+                        Cough.Play();
+                        v.weight = .9f;
+                        v2.weight = .9f;
+                        yield return new WaitForSeconds(7);
+                        YouDidIt.Play();
+                        yield return new WaitForSeconds(3);
+                        GodWhappend.Play();
+                        v.weight = .85f;
+                        v2.weight = .85f;
+                        yield return new WaitForSeconds(2);
+                        YouWereUncouncsious.Play();
+                        Jet.volume = .15f;
+                        yield return new WaitForSeconds(4);
+                        ThanksRyan.Play();
+                        Jet.Play();
+                        v.weight = .8f;
+                        v2.weight = .8f;
+                        yield return new WaitForSeconds(2);
+                        ourAirForces.SetActive(true);
+                        ourAirForces.GetComponent<Animation>().Play("FinalForces");
+                        yield return new WaitForSeconds(3);
+                        injuredSoldier.GetComponent<Animation>().Play("FinalLaugh");
+                        LookEveryOne.Play();
+                        yield return new WaitForSeconds(6.5f);
+                        ourAirForces.SetActive(false);
+                        WellJohnnyShower.Play();
+                        v.weight = .75f;
+                        v2.weight = .75f;
+                        yield return new WaitForSeconds(5.5f);
+                        ShutupDoc.Play();
+                        yield return new WaitForSeconds(1.5f);
+                        Laughing.Play();
+                        v.weight = .7f;
+                        v2.weight = .7f;
+                        yield return new WaitForSeconds(4);
+                        DirLight.SetActive(false);
+                        finalCvs.SetActive(true);
+                        yield return new WaitForSeconds(2.5f);
                         SceneManager.LoadScene(9);
                     }
                     else
@@ -395,14 +472,18 @@ public class HeartMassage : MonoBehaviour
                         explosionRig.SetActive(true);
                         explosionRig2.SetActive(true);
                         explosionRig3.SetActive(true);
+                        shakeCam.SetActive(true);
                         yield return new WaitForSeconds(3);
                         air.SetActive(true);
                         DirLight.SetActive(false);
-                        finalCvs.SetActive(true);
+                        v.weight = 1f;
+                        v2.weight = 1f;
                         explosionRig.SetActive(false);
                         explosionRig2.SetActive(false);
                         explosionRig3.SetActive(false);
                         yield return new WaitForSeconds(5f);
+                        finalCvs.SetActive(true);
+                        yield return new WaitForSeconds(2f);
                         SceneManager.LoadScene(9);
                     }
 
